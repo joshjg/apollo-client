@@ -13,8 +13,6 @@ import {
 
 import { print } from 'graphql/language/printer';
 
-import { createApolloStore, ApolloStore, createApolloReducer } from './store';
-
 import {
   ObservableQuery,
   FetchMoreOptions,
@@ -35,8 +33,6 @@ import {
 import { readQueryFromStore } from './data/readFromStore';
 
 import { writeQueryToStore } from './data/writeToStore';
-
-import { MutationQueryReducersMap } from './data/mutationResults';
 
 import {
   getQueryDefinition,
@@ -66,8 +62,6 @@ import {
 export {
   createNetworkInterface,
   createBatchingNetworkInterface,
-  createApolloStore,
-  createApolloReducer,
   readQueryFromStore,
   writeQueryToStore,
   addTypenameToDocument,
@@ -96,10 +90,8 @@ export {
   WatchQueryOptions,
   MutationOptions,
   ObservableQuery,
-  MutationQueryReducersMap,
   Subscription,
   SubscriptionOptions,
-  ApolloStore,
   ApolloClient,
   FetchMoreOptions,
   UpdateQueryOptions,

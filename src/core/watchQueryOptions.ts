@@ -1,10 +1,5 @@
 import { DocumentNode, FragmentDefinitionNode } from 'graphql';
 
-import {
-  OperationResultReducer,
-  MutationQueryReducersMap,
-} from '../data/mutationResults';
-
 import { DataProxy } from '../data/proxy';
 
 import { PureQueryOptions, ApolloExecutionResult } from './types';
@@ -55,11 +50,6 @@ export interface ModifiableWatchQueryOptions {
    * Whether or not updates to the network status should trigger next on the observer of this query
    */
   notifyOnNetworkStatusChange?: boolean;
-
-  /**
-   * A redux reducer that lets you update the result of this query in the store based on any action (including mutation and query results)
-   */
-  reducer?: OperationResultReducer;
 }
 
 /**
@@ -133,14 +123,6 @@ export interface MutationOptions<T = { [key: string]: any }> {
    * appear.
    */
   optimisticResponse?: Object | Function;
-
-  /**
-   * A {@link MutationQueryReducersMap}, which is map from query names to
-   * mutation query reducers. Briefly, this map defines how to incorporate the
-   * results of the mutation into the results of queries that are currently
-   * being watched by your application.
-   */
-  updateQueries?: MutationQueryReducersMap<T>;
 
   /**
    * A list of query names which will be refetched once this mutation has

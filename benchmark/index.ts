@@ -26,6 +26,8 @@ import { Deferred } from 'benchmark';
 
 import { times, cloneDeep } from 'lodash';
 
+import { InMemoryCache } from '../src/data/inMemoryCache';
+
 const simpleQuery = gql`
   query {
     author {
@@ -368,7 +370,7 @@ times(50, index => {
               diffQueryAgainstStore({
                 query,
                 variables,
-                store: client.store.getState()['apollo'].data,
+                store: (client.queryManager.dataStore.getCache() as InMemoryCache).getData(),
               }),
             );
             done();

@@ -1,7 +1,3 @@
-const globals = {
-  'redux': 'Redux'
-};
-
 export default {
   entry: 'lib/src/index.js',
   dest: 'lib/apollo.umd.js',
@@ -9,7 +5,6 @@ export default {
   sourceMap: true,
   moduleName: 'apollo',
   exports: 'named',
-  globals,
   onwarn
 };
 
