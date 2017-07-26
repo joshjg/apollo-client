@@ -967,6 +967,7 @@ export class QueryManager {
   }
 
   public broadcastQueries() {
+    this.onUpdate();
     Object.keys(this.queryListeners).forEach((queryId: string) => {
       const listeners = this.queryListeners[queryId];
       // XXX due to an unknown race condition listeners can sometimes be undefined here.
